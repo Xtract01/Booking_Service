@@ -1,31 +1,31 @@
-## Steps to setup the starter template
+## Setup
 
-1. Clone the project
+1. Clone the repository
 
-```
-git clone https://github.com/singhsanket143/Express-Typescript-Starter-Project.git <ProjectName>
-```
-
-2. Move in to the folder structure
-
-```
-cd <ProjectName>
+```bash
+git clone https://github.com/Xtract01/Booking_Service.git
 ```
 
-3. Install npm dependencies
+2. Navigate to the project directory
 
-```
-npm i
-```
-
-4. Create a new .env file in the root directory and add the `PORT` env variable
-
-```
-echo PORT=3000 >> .env
+```bash
+cd Booking_Service
 ```
 
-5. Start the express server
+3. Install dependencies
 
+```bash
+npm install
 ```
+
+4. Create a `.env` file in the project root and add the following:
+
+```env
+PORT=3000
+```
+
+5. Start the development server
+
+```bash
 npm run dev
 ```
