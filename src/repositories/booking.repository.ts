@@ -40,17 +40,38 @@ export async function gerBookingById(bookingId: number) {
   return booking;
 }
 
-export async function confirmBooking(
-  bookingId: number,
-  status: Prisma.EnumBookingStatusFieldUpdateOperationsInput,
-) {
+export async function confirmBooking(bookingId: number) {
   const booking = await prisma.booking.update({
     where: {
       id: bookingId,
     },
     data: {
-      status: status,
+      status: "CONFIRMED",
     },
   });
   return booking;
+}
+
+export async function cancelBooking(bookingId: number) {
+  const booking = await prisma.booking.update({
+    where: {
+      id: bookingId,
+    },
+    data: {
+      status: "CANCELLED",
+    },
+  });
+  return booking;
+}
+
+export async function finalizeIdempotencyKey(key: string) {
+  const idempotencyKey = await prisma.idempotencyKey.update({
+    where: {
+      key,
+    },
+    data: {
+      finalized: true,
+    },
+  });
+  return idempotencyKey;
 }
