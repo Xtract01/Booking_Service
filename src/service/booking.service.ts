@@ -24,7 +24,7 @@ export async function createBookingService(createBookingDTO: CreateBookingDTO) {
   };
 }
 
-export async function finalizeBooking(idempotencyKey: string) {
+export async function confirmBookingService(idempotencyKey: string) {
   const idempotencyKeyData = await getIdempotencyKey(idempotencyKey);
 
   if (!idempotencyKeyData) {

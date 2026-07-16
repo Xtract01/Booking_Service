@@ -1,7 +1,10 @@
 import express from "express";
 
 import { validateRequestBody } from "../../validators";
-import { createBookingHandler } from "../../controllers/booking.controller";
+import {
+  confirmBookingHandler,
+  createBookingHandler,
+} from "../../controllers/booking.controller";
 import { createBookingSchema } from "../../validators/booking.validator";
 
 const bookingRouter = express.Router();
@@ -12,4 +15,5 @@ bookingRouter.post(
   createBookingHandler,
 );
 
+bookingRouter.post("/confirm/:idempotencyKey", confirmBookingHandler);
 export default bookingRouter;
